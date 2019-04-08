@@ -40,8 +40,7 @@ sealed class AssignmentDetailsViewState(val visibilities: AssignmentDetailsVisib
         val description: String = "",
         val submitButtonText: String = "",
         val gradeState: AssignmentDetailsGradeState = AssignmentDetailsGradeState.Empty,
-        val assignmentDetailsVisibilities: AssignmentDetailsVisibilities,
-        val submissionTypesVisibilities: SubmissionTypesVisibilities? = null
+        val assignmentDetailsVisibilities: AssignmentDetailsVisibilities
     ) : AssignmentDetailsViewState(assignmentDetailsVisibilities)
 }
 
