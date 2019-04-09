@@ -64,7 +64,8 @@ data class SubmissionTypesVisibilities(
     var textEntry: Boolean = false,
     var urlEntry: Boolean = false,
     var fileUpload: Boolean = false,
-    var mediaRecording: Boolean = false
+    var mediaRecording: Boolean = false,
+    var arcUpload: Boolean = false
 )
 
 sealed class AssignmentDetailsGradeState {
