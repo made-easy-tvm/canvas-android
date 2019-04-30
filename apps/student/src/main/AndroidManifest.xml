@@ -54,7 +54,8 @@
         android:theme="@style/CanvasMaterialTheme_Default"
         tools:overrideLibrary="com.instructure.canvasapi"
         tools:replace="android:supportsRtl">
-        <activity android:name=".MadeEasyLoginInit"></activity>
+        <activity android:name=".MadeEasyLoginInit"
+            android:screenOrientation="portrait" />
         <!-- Fun fact. LoginActivity is called that because activity-alias are not supported by pspdfkit, should be InitLoginActivity -->
         <activity
             android:name=".activity.LoginActivity"
