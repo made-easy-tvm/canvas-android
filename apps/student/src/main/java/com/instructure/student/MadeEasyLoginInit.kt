@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.instructure.canvasapi2.models.AccountDomain
+import com.instructure.canvasapi2.utils.APIHelper
 import com.instructure.loginapi.login.dialog.ErrorReportDialog
+import com.instructure.loginapi.login.dialog.NoInternetConnectionDialog
 import com.instructure.loginapi.login.util.Const
 import com.instructure.pandautils.utils.onClick
 import com.instructure.student.activity.SignInActivity
@@ -31,8 +33,12 @@ class MadeEasyLoginInit : AppCompatActivity(), ErrorReportDialog.ErrorReportDial
 
     private fun bindViews() {
         bt_login.onClick {
-            val intent = SignInActivity.createIntent(this, AccountDomain(Const.URL_CANVAS_NETWORK))
-            startActivity(intent)
+            if (!APIHelper.hasNetworkConnection()) {
+                NoInternetConnectionDialog.show(supportFragmentManager)
+            } else {
+                val intent = SignInActivity.createIntent(this, AccountDomain(Const.URL_CANVAS_NETWORK))
+                startActivity(intent)
+            }
         }
 
         bt_phone.onClick {
