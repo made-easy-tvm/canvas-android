@@ -3,27 +3,17 @@ package com.instructure.student
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.instructure.canvasapi2.models.AccountDomain
 import com.instructure.canvasapi2.utils.APIHelper
-import com.instructure.loginapi.login.dialog.ErrorReportDialog
 import com.instructure.loginapi.login.dialog.NoInternetConnectionDialog
 import com.instructure.loginapi.login.util.Const
 import com.instructure.pandautils.utils.onClick
 import com.instructure.student.activity.SignInActivity
 import kotlinx.android.synthetic.main.activity_made_easy_login_init.*
 
-class MadeEasyLoginInit : AppCompatActivity(), ErrorReportDialog.ErrorReportDialogResultListener {
-
-    override fun onTicketError() {
-        TODO("not implemented")
-    }
-
-    override fun onTicketPost() {
-        TODO("not implemented")
-    }
+class MadeEasyLoginInit : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +38,7 @@ class MadeEasyLoginInit : AppCompatActivity(), ErrorReportDialog.ErrorReportDial
         }
 
         bt_map.onClick {
-            val intent = Intent(android.content.Intent.ACTION_VIEW,
+            val intent = Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://www.google.com/maps/search/?api=1&query=Made+Easy&query_place_id=ChIJ5afYLDe7BTsRhIxz6D4Welg"))
             startActivity(intent)
         }
