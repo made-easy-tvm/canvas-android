@@ -26,9 +26,12 @@ import java.io.IOException;
 
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -41,25 +44,33 @@ public class MobileVerifyAPI {
 
         final String userAgent = ApiPrefs.getUserAgent();
 
+        final String MADEEASY_DOMAIN = "{" +
+                "\"authorized\": true, " +
+                "\"result\": 0, " +
+                "\"client_id\": \"10000000000004\", " +
+                "\"api_key\": \"gtpj7eO4dFrmKBDVh7XHWESpjRuTf1MeIFHoGSk7YsovkO67rNmKLQvaBgmGvm5u\", " +
+                "\"client_secret\": \"gtpj7eO4dFrmKBDVh7XHWESpjRuTf1MeIFHoGSk7YsovkO67rNmKLQvaBgmGvm5u\", " +
+                "\"base_url\": \"https://app.madeeasytvm.in\"" +
+                "}";
+
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
-                        if (!userAgent.equals("")) {
-                            Request request = chain.request().newBuilder()
-                                    .header("User-Agent", userAgent)
-                                    .cacheControl(CacheControl.FORCE_NETWORK)
-                                    .build();
-                            return chain.proceed(request);
-                        } else {
-                            return chain.proceed(chain.request());
-                        }
+                        return new Response.Builder()
+                                .code(200)
+                                .message("OK")
+                                .request(chain.request())
+                                .body(ResponseBody.create(MediaType.parse("application/json"), MADEEASY_DOMAIN.getBytes()))
+                                .addHeader("content-type", "application/json")
+                                .protocol(Protocol.HTTP_1_0)
+                                .build();
                     }
                 })
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl("https://canvas.instructure.com/api/v1/")
+                .baseUrl("https://app.madeeasytvm.in/api/v1/")
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

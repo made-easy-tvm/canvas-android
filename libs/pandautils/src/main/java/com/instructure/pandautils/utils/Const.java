@@ -178,7 +178,7 @@ public class Const {
     public static final String COURSE_VIEW = "course_view";
     public static final String WITH_SLIDING_PANE = "with_sliding_pane";
     public static final String PLACEMENT = "placement";
-    public static final String PROFILE_URL = "canvas.instructure.com";
+    public static final String PROFILE_URL = "app.madeeasytvm.in";
     public static final String NO_PICTURE_URL = "images/dotted_pic.png";
 
     public static final String LOGIN = "login";

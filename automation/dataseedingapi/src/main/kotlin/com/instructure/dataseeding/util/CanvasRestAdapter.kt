@@ -28,7 +28,7 @@ object CanvasRestAdapter {
 
     val canvasDomain = "mobileqa.test.instructure.com"
     val baseUrl = "https://$canvasDomain/api/v1/"
-    val redirectUri = "urn:ietf:wg:oauth:2.0:oob"
+    val redirectUri = "https://app.madeeasytvm.in/login/oauth2/auth"
     val adminToken = DATA_SEEDING_ADMIN_TOKEN
     val clientId = DATA_SEEDING_CLIENT_ID
     val clientSecret = DATA_SEEDING_CLIENT_SECRET

@@ -470,9 +470,9 @@ public abstract class BaseLoginSignInActivity extends AppCompatActivity implemen
 
         if(forceAuthRedirect || mCanvasLogin == MOBILE_VERIFY_FLOW || (domain != null && domain.contains(".test."))) {
             //Skip mobile verify
-            builder.appendQueryParameter("redirect_uri", "urn:ietf:wg:oauth:2.0:oob");
+            builder.appendQueryParameter("redirect_uri", "https://app.madeeasytvm.in/login/oauth2/auth");
         } else {
-            builder.appendQueryParameter("redirect_uri", "https://canvas.instructure.com/login/oauth2/auth");
+            builder.appendQueryParameter("redirect_uri", "https://app.madeeasytvm.in/login/oauth2/auth");
         }
 
         //If an authentication provider is supplied we need to pass that along. This should only be appended if one exists.

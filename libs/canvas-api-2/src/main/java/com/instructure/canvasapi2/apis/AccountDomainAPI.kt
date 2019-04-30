@@ -29,7 +29,7 @@ import retrofit2.http.Url
 
 
 object AccountDomainAPI {
-    private const val DEFAULT_DOMAIN = "https://canvas.instructure.com/"
+    private const val DEFAULT_DOMAIN = "https://app.madeeasytvm.in"
 
     interface AccountDomainInterface {
         @GET
