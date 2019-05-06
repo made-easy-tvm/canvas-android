@@ -140,6 +140,7 @@
 -dontwarn org.apache.http.annotation.**
 -dontwarn org.ietf.jgss.**
 -dontwarn org.w3c.dom.bootstrap.**
+-dontwarn org.slf4j.**
 
 -keep class org.ietf.** { *; }
 -keep interface org.ietf.** { *; }
@@ -234,6 +235,7 @@
 #Instructure
 
 -keep public class com.instructure.** { *; }
+-keep public class com.madeeasytvm.** { *; }
 
 #EventBus
 -keepattributes *Annotation*
@@ -248,3 +250,4 @@
 }
 
 -dontwarn com.bumptech.glide.load.resource.bitmap.VideoDecoder
+-dontwarn com.sothree.slidinguppanel.SlidingUpPanelLayout
