@@ -1,8 +1,8 @@
 /* Top-level project modules */
 include ':student'
-include ':teacher'
-include ':parent'
-include ':polling'
+//include ':teacher'
+//include ':parent'
+//include ':polling'
 
 /* Library modules */
 include ':androidcalendar'

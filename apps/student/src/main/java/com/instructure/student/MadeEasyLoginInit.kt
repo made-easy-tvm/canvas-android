@@ -20,7 +20,15 @@ import com.instructure.student.activity.SignInActivity
 import kotlinx.android.synthetic.main.activity_made_easy_login_init.*
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import com.instructure.canvasapi2.utils.tryOrNull
 import com.instructure.pandautils.utils.GlideApp
+import org.json.JSONArray
+import org.json.JSONObject
+import kotlin.random.Random
 
 
 class MadeEasyLoginInit : AppCompatActivity() {
@@ -53,11 +61,14 @@ class MadeEasyLoginInit : AppCompatActivity() {
             startActivity(intent)
         }
 
-        showImage("https://storage.googleapis.com/madeeasytvm-canvas/madeeasy-banner-1.jpeg")
+        showBanner()
     }
 
-    fun showImage(imageUri: String) {
-        MadeEasyBanner(this, imageUri).show()
+    fun showBanner() {
+        val config = FirebaseRemoteConfig.getInstance().getString("banner_url")
+        val json = tryOrNull { JSONArray(config) } ?: return
+        val url = json.get(Random.nextInt(json.length())).toString()
+        MadeEasyBanner(this, url).show()
     }
 
     companion object {

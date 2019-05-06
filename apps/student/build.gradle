@@ -236,6 +236,7 @@ dependencies {
     /* Google Play Services */
     implementation Libs.PLAY_SERVICES_OSS_LICENSES
     implementation Libs.FIREBASE_CORE
+    implementation 'com.google.firebase:firebase-config:16.5.0'
 
     /* Media Handling */
     implementation 'com.makeramen:roundedimageview:2.3.0'

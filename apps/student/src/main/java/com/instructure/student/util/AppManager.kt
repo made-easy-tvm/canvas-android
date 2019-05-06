@@ -26,6 +26,7 @@ import com.crashlytics.android.core.CrashlyticsCore
 import com.google.android.gms.analytics.GoogleAnalytics
 import com.google.android.gms.analytics.HitBuilders
 import com.google.android.gms.analytics.Tracker
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.instructure.canvasapi2.utils.ContextKeeper
 import com.instructure.canvasapi2.utils.Logger
 import com.instructure.canvasapi2.utils.pageview.PageViewUploadService
@@ -71,6 +72,9 @@ class AppManager : com.instructure.canvasapi2.AppManager(), AnalyticsEventHandli
         }
 
         PageViewUploadService.schedule(this, StudentPageViewService::class.java)
+
+        FirebaseRemoteConfig.getInstance().setDefaults(R.xml.remote_config_defaults)
+        FirebaseRemoteConfig.getInstance().fetchAndActivate()
     }
 
     override fun attachBaseContext(base: Context) {
