@@ -1,9 +1,15 @@
 package com.instructure.student
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.view.ViewGroup
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import com.instructure.canvasapi2.models.AccountDomain
 import com.instructure.canvasapi2.utils.APIHelper
@@ -12,6 +18,10 @@ import com.instructure.loginapi.login.util.Const
 import com.instructure.pandautils.utils.onClick
 import com.instructure.student.activity.SignInActivity
 import kotlinx.android.synthetic.main.activity_made_easy_login_init.*
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import com.instructure.pandautils.utils.GlideApp
+
 
 class MadeEasyLoginInit : AppCompatActivity() {
 
@@ -42,6 +52,12 @@ class MadeEasyLoginInit : AppCompatActivity() {
                     Uri.parse("https://www.google.com/maps/search/?api=1&query=Made+Easy&query_place_id=ChIJ5afYLDe7BTsRhIxz6D4Welg"))
             startActivity(intent)
         }
+
+        showImage("https://storage.googleapis.com/madeeasytvm-canvas/madeeasy-banner-1.jpeg")
+    }
+
+    fun showImage(imageUri: String) {
+        MadeEasyBanner(this, imageUri).show()
     }
 
     companion object {
