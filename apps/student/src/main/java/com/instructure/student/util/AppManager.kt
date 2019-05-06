@@ -53,7 +53,8 @@ class AppManager : com.instructure.canvasapi2.AppManager(), AnalyticsEventHandli
 
     override fun onCreate() {
         super.onCreate()
-        initPSPDFKit()
+        // PSPDF is disabled for now
+        // initPSPDFKit()
 
         val crashlyticsKit = Crashlytics.Builder()
             .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
