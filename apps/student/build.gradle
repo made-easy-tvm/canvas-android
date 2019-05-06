@@ -43,7 +43,7 @@ android {
     buildToolsVersion Versions.BUILD_TOOLS
 
     defaultConfig {
-        applicationId "com.instructure.candroid"
+        applicationId "com.madeeasytvm.candroid"
         minSdkVersion Versions.MIN_SDK
         targetSdkVersion Versions.TARGET_SDK
         versionCode = 191
@@ -246,6 +246,10 @@ dependencies {
 
     /* Apache Commons */
     implementation 'org.apache.commons:commons-text:1.6'
+
+    /* Glide */
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     /* Support dependencies */
     implementation Libs.ANDROIDX_ANNOTATION
