@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Karimbuvila, Poonthura, Thiruvananthapuram"
+            android:text="Near Govt. Hospital, SM Lock, Poonthura"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
     </LinearLayout>
 
