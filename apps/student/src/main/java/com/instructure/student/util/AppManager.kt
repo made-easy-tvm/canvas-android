@@ -75,7 +75,9 @@ class AppManager : com.instructure.canvasapi2.AppManager(), AnalyticsEventHandli
         PageViewUploadService.schedule(this, StudentPageViewService::class.java)
 
         FirebaseRemoteConfig.getInstance().setDefaults(R.xml.remote_config_defaults)
-        FirebaseRemoteConfig.getInstance().fetchAndActivate()
+        FirebaseRemoteConfig.getInstance().fetch(0).onSuccessTask {
+            FirebaseRemoteConfig.getInstance().activate()
+        }
     }
 
     override fun attachBaseContext(base: Context) {

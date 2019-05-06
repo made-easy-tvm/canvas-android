@@ -61,12 +61,16 @@ class MadeEasyLoginInit : AppCompatActivity() {
             startActivity(intent)
         }
 
-        showBanner()
+        FirebaseRemoteConfig.getInstance().fetch().addOnCompleteListener {
+            FirebaseRemoteConfig.getInstance().activate()
+            showBanner()
+        }
     }
 
     fun showBanner() {
         val config = FirebaseRemoteConfig.getInstance().getString("banner_url")
         val json = tryOrNull { JSONArray(config) } ?: return
+        if (json.length() < 1) return
         val url = json.get(Random.nextInt(json.length())).toString()
         MadeEasyBanner(this, url).show()
     }
